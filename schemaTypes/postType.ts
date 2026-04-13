@@ -79,7 +79,26 @@ export const postType = defineType({
     defineField({
       name: 'body',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [
+        {type: 'block'},
+        {
+          type: 'object',
+          name: 'videoEmbed',
+          title: 'Video Embed',
+          fields: [
+            defineField({name: 'url', type: 'url', title: 'Video URL'}),
+          ],
+        },
+        {
+          type: 'object',
+          name: 'externalImage',
+          title: 'External Image',
+          fields: [
+            defineField({name: 'url', type: 'url', title: 'Image URL'}),
+            defineField({name: 'alt', type: 'string', title: 'Alt Text'}),
+          ],
+        },
+      ],
     }),
   ],
 })
